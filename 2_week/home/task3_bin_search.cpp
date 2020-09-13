@@ -1,7 +1,3 @@
-//
-//  main.cpp
-//  bin_s
-//
 //  Created by Дарья Землянская on 13.09.2020.
 //  Copyright © 2020 Дарья Землянская. All rights reserved.
 //
