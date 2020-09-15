@@ -2,18 +2,29 @@
 //  Copyright © 2020 Дарья Землянская. All rights reserved.
 //
 #include <stdio.h>
+#include <vector>
 #include <iostream>
 
 int main() {
-    std::cout << "The array consists of ";
+    std::cout << "The vector consists of ";
     std::size_t n;
     std::cin >> n;
     
-    double v[n];
+    std::vector <int> v;
     std::cout << "Elements: ";
+    
     for (int i = 0; i < n; i++){
-        std::cin >> v[i];
+        double a;
+        std::cin >> a;
+        v.push_back(a);
     }
+    
+    std::sort(v.begin(), v.end());
+    
+    for (int i = 0; i < n; i++){
+        std::cout << v[i] << " ";
+    }
+    std::cout << std::endl;
     
     std::cout << "Search for ";
     double s;
