@@ -1,6 +1,3 @@
-//  Created by Дарья Землянская on 13.09.2020.
-//  Copyright © 2020 Дарья Землянская. All rights reserved.
-//
 #include <iostream>
 #include <cmath>
 
@@ -22,7 +19,6 @@ double * Gauss(double **a, double *y, int n)
         index = i;
       }
     }
-      
       if (max == 0)
     {
       std::cout << "The solution is impossible, because of the zero column" << std::endl;
@@ -31,13 +27,10 @@ double * Gauss(double **a, double *y, int n)
       
     for (int j = 0; j < n; j++)
     {
-      double temp = a[k][j];
-      a[k][j] = a[index][j];
-      a[index][j] = temp;
+      std::swap(a[k][j], a[index][j]);
     }
-    double temp = y[k];
-    y[k] = y[index];
-    y[index] = temp;
+
+    std::swap(y[k], y[index]);
     
       
     for (int i = k; i < n; i++)
@@ -93,9 +86,14 @@ int main()
     std::cout << "Enter element y[" << i << "]= ";
     std::cin >> y[i];
   }
-  x = Gauss(a, y, n);
-    
-  for (int i = 0; i < n; i++)
-    std::cout << "x" << i << " = " << x[i] << std::endl;
+    x = Gauss(a, y, n);
+    for (int i = 0; i < n; i++){
+        std::cout << "x" << i << " = " << x[i] << std::endl;
+    }
+    for (int count = 0; count < 2; count++){
+        delete [] a[count];
+    }
+    delete [] y;
+    delete [] x;
   return 0;
 }
