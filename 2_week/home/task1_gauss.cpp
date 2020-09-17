@@ -13,17 +13,20 @@ double * Gauss(double **a, double *y, int n)
     index = k;
     for (int i = k + 1; i < n; i++)
     {
-      if (abs(a[i][k]) > max)
-      {
+      if (abs(a[i][k]) > max){
         max = abs(a[i][k]);
         index = i;
       }
     }
-      if (max == 0)
-    {
-      std::cout << "The solution is impossible" << std::endl;
+      
+    if (max == 0 && y[k] == 0){
+      std::cout << "The solution is infinity" << std::endl;
       return 0;
+    } else if (max == 0 && abs(y[k]) > 0){
+        std::cout << "The solution is impossible" << std::endl;
+        return 0;
     }
+      
       
     for (int j = 0; j < n; j++)
     {
@@ -98,3 +101,4 @@ int main()
     delete [] y;
   return 0;
 }
+
