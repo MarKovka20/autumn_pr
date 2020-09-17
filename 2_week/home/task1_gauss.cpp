@@ -21,7 +21,7 @@ double * Gauss(double **a, double *y, int n)
     }
       if (max == 0)
     {
-      std::cout << "The solution is impossible, because of the zero column" << std::endl;
+      std::cout << "The solution is impossible" << std::endl;
       return 0;
     }
       
@@ -58,6 +58,10 @@ double * Gauss(double **a, double *y, int n)
       y[i] = y[i] - a[i][k] * x[k];
   }
     
+    
+    for (int i = 0; i < n; i++){
+        std::cout << "x" << i << " = " << x[i] << std::endl;
+    }
   return x;
 }
 
@@ -66,7 +70,7 @@ double * Gauss(double **a, double *y, int n)
 
 int main()
 {
-  double **a, *y, *x;
+  double **a, *y;
   int n;
   std::cout << "Enter the number of equations: ";
   std::cin >> n;
@@ -86,14 +90,11 @@ int main()
     std::cout << "Enter element y[" << i << "]= ";
     std::cin >> y[i];
   }
-    x = Gauss(a, y, n);
-    for (int i = 0; i < n; i++){
-        std::cout << "x" << i << " = " << x[i] << std::endl;
-    }
+    Gauss(a, y, n);
+    
     for (int count = 0; count < 2; count++){
         delete [] a[count];
     }
     delete [] y;
-    delete [] x;
   return 0;
 }
