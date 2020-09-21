@@ -9,7 +9,7 @@
 #include <cstdlib>
 
 
-void Print(std::vector<int> array){
+void Print(const std::vector<int>& array){
     for (int a = 0; a < array.size(); a++) {
         std::cout << array[a] << " ";
     }
