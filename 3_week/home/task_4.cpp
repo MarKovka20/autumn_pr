@@ -6,7 +6,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-double calculate(double x, double y, const std::function<double(double, double)> t){
+double calculate(double x, double y, const std::function<double(double, double)>& t){
     return t(x, y);
 }
 
